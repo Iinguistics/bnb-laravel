@@ -1866,6 +1866,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
@@ -1916,6 +1918,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -1925,8 +1938,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       test: 'Airpods',
       price: 89.99,
-      data: []
+      bookables: null,
+      loading: true,
+      columns: 3
     };
+  },
+  computed: {
+    rows: function rows() {
+      return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.columns);
+    }
   },
   created: function created() {
     this.fetchData();
@@ -1947,15 +1967,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 res = _context.sent;
-                _this.data = res.data;
+                _this.bookables = res.data;
+                _this.loading = false;
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    bookablesInRow: function bookablesInRow(row) {
+      return this.bookables.slice((row - 1) * this.columns, row * this.columns);
+    },
+    placeholdersInRow: function placeholdersInRow(row) {
+      return this.columns - this.bookablesInRow(row).length;
     }
   }
 });
@@ -38684,10 +38711,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h3", [_vm._v(_vm._s(_vm.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.description))])
+  return _c("div", { staticClass: "card w-100" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("h4", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.title))]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.description))])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -38714,24 +38743,46 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.data
-      ? _c(
+    _vm.loading
+      ? _c("div", [_vm._v("Data is loading...")])
+      : _c(
           "div",
-          _vm._l(_vm.data, function(item) {
+          _vm._l(_vm.rows, function(row) {
             return _c(
               "div",
-              { key: item.id },
+              { key: "row" + row, staticClass: "row mb-4" },
               [
-                _c("BookableListItem", {
-                  attrs: { title: item.title, description: item.description }
+                _vm._l(_vm.bookablesInRow(row), function(item, column) {
+                  return _c(
+                    "div",
+                    {
+                      key: "row" + row + column,
+                      staticClass: "col d-flex align-items-stretch"
+                    },
+                    [
+                      _c("BookableListItem", {
+                        attrs: {
+                          title: item.title,
+                          description: item.description
+                        }
+                      })
+                    ],
+                    1
+                  )
+                }),
+                _vm._v(" "),
+                _vm._l(_vm.placeholdersInRow(row), function(p) {
+                  return _c("div", {
+                    key: "placeholder" + row + p,
+                    staticClass: "col"
+                  })
                 })
               ],
-              1
+              2
             )
           }),
           0
         )
-      : _vm._e()
   ])
 }
 var staticRenderFns = []
