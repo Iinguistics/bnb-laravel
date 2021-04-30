@@ -1,14 +1,8 @@
 <template>
     <div>
-        <h1>{{test}} {{ price }}</h1>
-        <div v-if="myArr">
-             <ul>
-                 <li v-for="item in myArr" :key="item.id">{{ item }}</li>
-          </ul>
-        </div>
-       
-        
-
+        <h3>{{ title }}</h3>
+        <p>{{ description }}</p>
+             
     </div>
 </template>
 
@@ -22,20 +16,15 @@
         },
         data: function(){
             return {
-               myArr: [556,55,'testing'],
-               myString: 'its a h1'
+        
     
             }
         },
         props: {
-            test: String,
-            price: Number
+            title: String,
+            description: String
         },
         computed:{
-             alpha: function(){
-                    return this.myArr[0] + ' ' + this.myString 
-                  
-            }
 
             
         },
