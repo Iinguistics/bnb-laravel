@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div v-if="loading">Data is loading...</div>
+    <div v-if="loading" class="text-center"><Loader /></div>
     <div v-else>
       <div class="row mb-4" v-for="row in rows" :key="'row' + row">
         <div
@@ -26,12 +26,13 @@
 
 <script>
 import BookableListItem from './BookableListItem';
-
+import Loader from '../components/Helpers/Loader';
 
 
     export default {
         components:{
-            BookableListItem
+            BookableListItem,
+            Loader
         },
         data: function(){
             return {
