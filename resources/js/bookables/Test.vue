@@ -2,21 +2,26 @@
     <div>
     <div v-if="loading" class="text-center"><Loader /></div>
     <div v-else>
-      <div class="row mb-4" v-for="row in rows" :key="'row' + row">
-        <div
-          class="col d-flex align-items-stretch "
-          v-for="(item, column) in bookablesInRow(row)"
-          :key="'row' + row + column"
+       <div class="row row-cols-auto row-cols-md-4">
+
+       
+        <div 
+          v-for="item in bookables" :key="item.id"
         >
-          <BookableListItem :title= item.title 
+          
+               <div class="col my-2 md-my-0">
+             <BookableListItem :title= item.title 
              :description= item.description 
              />
-        </div>
-
-        <div class="col" v-for="p in placeholdersInRow(row)" :key="'placeholder' + row + p"></div>
       </div>
+      
+      
+  </div>
+
+       </div>
     </div>
 
+  
   </div>
 
 </template>
