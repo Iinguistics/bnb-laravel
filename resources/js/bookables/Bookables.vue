@@ -48,7 +48,7 @@ import Loader from '../components/Helpers/Loader';
         methods:{
            async fetchBookables(){
                 const res = await axios.get('/api/bookables');
-                this.bookables = res.data;
+                this.bookables = res.data.data;
                 this.loading = false;
             },
         }

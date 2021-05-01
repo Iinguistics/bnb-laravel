@@ -13,7 +13,9 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">Availability & prices</div>
+    <div class="col-md-4 pb-4">
+    <Availability />
+    </div>
   </div>
 </div>
 </template>
@@ -22,10 +24,12 @@
 
 <script>
 import Loader from '../components/Helpers/Loader';
+import Availability from './Availability';
 
     export default {
         components:{
            Loader,
+           Availability
 
         },
         data: function(){
@@ -48,7 +52,7 @@ import Loader from '../components/Helpers/Loader';
         methods:{
            async fetchBookable(){
                 const res = await axios.get(`/api/bookables/${this.$route.params.id}`);
-                this.bookable = res.data;
+                this.bookable = res.data.data;
                 this.loading = false;
             },
        
