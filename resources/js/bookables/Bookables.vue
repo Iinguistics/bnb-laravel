@@ -4,12 +4,15 @@
       <div v-else>
        <div class="row row-cols-auto row-cols-md-3">
         <div v-for="item in bookables" :key="item.id">
-            <router-link :to=" '/bookable/' + item.id">test</router-link>
-               <div class="col my-2 md-my-0">
-             <BookableListItem :title= item.title 
+            <router-link :to=" '/bookable/' + item.id">
+             <div class="col my-2 md-my-0">
+             <BookableListItem 
+             :title= item.title 
              :description= item.description 
              />
           </div>
+            </router-link>
+              
         </div>
       </div>
     </div>
@@ -51,3 +54,13 @@ import Loader from '../components/Helpers/Loader';
         }
     }
 </script>
+
+
+
+<style scoped>
+
+ a{
+     text-decoration: none;
+ }
+
+</style>

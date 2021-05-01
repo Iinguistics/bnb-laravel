@@ -25,8 +25,7 @@ import Loader from '../components/Helpers/Loader';
             }
         },
         props: {
-            title: String,
-            description: String
+            
         },
         computed:{
           
@@ -49,3 +48,9 @@ import Loader from '../components/Helpers/Loader';
         
     
 </script>
+
+
+<style scoped>
+
+
+</style>
