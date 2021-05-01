@@ -24,7 +24,7 @@ class BookingFactory extends Factory
     // carbon date & time laravel lib
     public function definition()
     {
-        $from = Carbon::insance($this->faker->dateTimeBetween('-1 months', '+1 months'));
+        $from = Carbon::instance($this->faker->dateTimeBetween('-1 months', '+1 months'));
         $to = (clone $from)->addDays(random_int(0, 14));
 
         return [
