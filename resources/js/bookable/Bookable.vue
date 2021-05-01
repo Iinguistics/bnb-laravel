@@ -13,6 +13,7 @@
         </div>
       </div>
     </div>
+    <div class="col-md-4">Availability & prices</div>
   </div>
 </div>
 </template>

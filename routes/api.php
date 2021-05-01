@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Bookable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Api\BookableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('bookables', function (Request $request) {
-    return Bookable::all();
-});
 
+Route::get('/bookables', [App\Http\Controllers\Api\BookableController::class, 'index']);
 
-Route::get('bookables/{id}', function (Request $request, $id) {
-    return Bookable::findOrFail($id);
-});
+Route::get('/bookables/{id}', [App\Http\Controllers\Api\BookableController::class, 'show']);
