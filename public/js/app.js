@@ -1876,6 +1876,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -39233,7 +39243,21 @@ var render = function() {
   return _c("div", [
     _vm.loading
       ? _c("div", { staticClass: "text-center" }, [_c("Loader")], 1)
-      : _c("div", [_c("div", [_vm._v(_vm._s(_vm.bookable.title))])])
+      : _c("div", [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-8 pb-4" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h2", [_vm._v(_vm._s(_vm.bookable.title))]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("article", [_vm._v(_vm._s(_vm.bookable.description))])
+                ])
+              ])
+            ])
+          ])
+        ])
   ])
 }
 var staticRenderFns = []
@@ -39304,21 +39328,29 @@ var render = function() {
                 "div",
                 { key: item.id },
                 [
-                  _c("router-link", { attrs: { to: "/bookable/" + item.id } }, [
-                    _c(
-                      "div",
-                      { staticClass: "col my-2 md-my-0" },
-                      [
-                        _c("BookableListItem", {
-                          attrs: {
-                            title: item.title,
-                            description: item.description
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ])
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "bookable", params: { id: item.id } }
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col my-2 md-my-0" },
+                        [
+                          _c("BookableListItem", {
+                            attrs: {
+                              title: item.title,
+                              description: item.description
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]
+                  )
                 ],
                 1
               )

@@ -4,7 +4,7 @@
       <div v-else>
        <div class="row row-cols-auto row-cols-md-3">
         <div v-for="item in bookables" :key="item.id">
-            <router-link :to=" '/bookable/' + item.id">
+            <router-link :to="{ name: 'bookable', params: { id: item.id } }">
              <div class="col my-2 md-my-0">
              <BookableListItem 
              :title= item.title 

@@ -1,10 +1,20 @@
 <template>
-     <div>
-     <div v-if="loading" class="text-center"><Loader /></div>
-      <div v-else>
-       <div>{{ bookable.title }}</div>
+  <div>
+   <div v-if="loading" class="text-center"><Loader /></div>
+     <div v-else>
+      <div class="row">
+       <div class="col-md-8 pb-4">
+        <div class="card">
+          <div class="card-body">
+            <h2>{{ bookable.title }}</h2>
+            <hr />
+            <article>{{ bookable.description }}</article>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 </template>
 
 
