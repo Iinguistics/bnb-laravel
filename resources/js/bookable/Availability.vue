@@ -6,6 +6,7 @@
                 <label for="from">From</label>
                 <input 
                  v-model="from"
+                 @keyup.enter="check"
                  type="text" 
                  name="from" 
                  class="form-control form-control-sm"
@@ -17,6 +18,7 @@
                 <label for="to">To</label>
                 <input 
                  v-model="to"
+                 @keyup.enter="check"
                  type="text" 
                  name="to" 
                  class="form-control form-control-sm"
@@ -24,7 +26,7 @@
                  />
             </div>
         </div>
-        <button class="btn btn-secondary btn-block">Check</button>
+        <button class="btn btn-secondary btn-block" @click="check">Check</button>
     </div>
 </template>
 
@@ -43,6 +45,11 @@ export default {
     
             }
         },
+        methods:{
+            check(){
+                console.log('ran')
+            }
+        }
 }      
 </script>
 
