@@ -2,7 +2,7 @@
     <div class="card w-100 test" >
         <div class="card-body">
          <h4 class="card-title">{{ title }}</h4>
-        <p class="card-text">{{ description }}</p>
+        <p class="card-text my-5">{{ description }}</p>
         </div>
          
     </div>

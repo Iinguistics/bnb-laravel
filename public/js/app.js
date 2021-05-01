@@ -1845,6 +1845,87 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookable/Bookable.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookable/Bookable.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Helpers_Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Helpers/Loader */ "./resources/js/components/Helpers/Loader.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Loader: _components_Helpers_Loader__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  data: function data() {
+    return {
+      loading: true,
+      bookable: null
+    };
+  },
+  props: {
+    title: String,
+    description: String
+  },
+  computed: {},
+  created: function created() {
+    this.fetchBookable();
+  },
+  methods: {
+    fetchBookable: function fetchBookable() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/api/bookables/".concat(_this.$route.params.id));
+
+              case 2:
+                res = _context.sent;
+                _this.bookable = res.data;
+                _this.loading = false;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/BookableListItem.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/BookableListItem.vue?vue&type=script&lang=js& ***!
@@ -1925,11 +2006,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1939,24 +2015,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      test: 'Airpods',
-      price: 89.99,
       bookables: null,
-      loading: true,
-      columns: 3
+      loading: true
     };
   },
-  computed: {
-    rows: function rows() {
-      return this.bookables === null ? 0 : Math.ceil(this.bookables.length / this.columns);
-    }
-  },
+  computed: {},
   created: function created() {
-    this.fetchData();
-    console.log(this.data);
+    this.fetchBookables();
   },
   methods: {
-    fetchData: function fetchData() {
+    fetchBookables: function fetchBookables() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -1966,7 +2034,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.get('api/bookables');
+                return axios.get('/api/bookables');
 
               case 2:
                 res = _context.sent;
@@ -1980,12 +2048,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
-    },
-    bookablesInRow: function bookablesInRow(row) {
-      return this.bookables.slice((row - 1) * this.columns, row * this.columns);
-    },
-    placeholdersInRow: function placeholdersInRow(row) {
-      return this.columns - this.bookablesInRow(row).length;
     }
   }
 });
@@ -2013,11 +2075,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2260,10 +2317,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _bookables_Bookables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bookables/Bookables */ "./resources/js/bookables/Bookables.vue");
-/* harmony import */ var _components_About__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/About */ "./resources/js/components/About.vue");
-/* harmony import */ var _bookables_Test__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bookables/Test */ "./resources/js/bookables/Test.vue");
+/* harmony import */ var _bookable_Bookable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bookable/Bookable */ "./resources/js/bookable/Bookable.vue");
+/* harmony import */ var _components_About__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/About */ "./resources/js/components/About.vue");
+/* harmony import */ var _bookables_Test__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./bookables/Test */ "./resources/js/bookables/Test.vue");
+
 
 
 
@@ -2273,15 +2332,19 @@ var routes = [{
   component: _bookables_Bookables__WEBPACK_IMPORTED_MODULE_0__.default,
   name: 'home'
 }, {
+  path: "/bookable/:id",
+  component: _bookable_Bookable__WEBPACK_IMPORTED_MODULE_1__.default,
+  name: 'bookable'
+}, {
   path: "/about",
-  component: _components_About__WEBPACK_IMPORTED_MODULE_1__.default,
+  component: _components_About__WEBPACK_IMPORTED_MODULE_2__.default,
   name: 'about'
 }, {
   path: "/test",
-  component: _bookables_Test__WEBPACK_IMPORTED_MODULE_2__.default,
+  component: _bookables_Test__WEBPACK_IMPORTED_MODULE_3__.default,
   name: 'test'
 }];
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__.default({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   routes: routes,
   mode: 'history'
 });
@@ -38591,6 +38654,45 @@ component.options.__file = "resources/js/Index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/bookable/Bookable.vue":
+/*!********************************************!*\
+  !*** ./resources/js/bookable/Bookable.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Bookable_vue_vue_type_template_id_0d2ee2be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bookable.vue?vue&type=template&id=0d2ee2be& */ "./resources/js/bookable/Bookable.vue?vue&type=template&id=0d2ee2be&");
+/* harmony import */ var _Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bookable.vue?vue&type=script&lang=js& */ "./resources/js/bookable/Bookable.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _Bookable_vue_vue_type_template_id_0d2ee2be___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Bookable_vue_vue_type_template_id_0d2ee2be___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/bookable/Bookable.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/bookables/BookableListItem.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/bookables/BookableListItem.vue ***!
@@ -38788,6 +38890,22 @@ component.options.__file = "resources/js/components/Helpers/Loader.vue"
 
 /***/ }),
 
+/***/ "./resources/js/bookable/Bookable.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/bookable/Bookable.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Bookable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookable/Bookable.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/bookables/BookableListItem.vue?vue&type=script&lang=js&":
 /*!******************************************************************************!*\
   !*** ./resources/js/bookables/BookableListItem.vue?vue&type=script&lang=js& ***!
@@ -38881,6 +38999,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_147fb424___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_147fb424___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=147fb424& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Index.vue?vue&type=template&id=147fb424&");
+
+
+/***/ }),
+
+/***/ "./resources/js/bookable/Bookable.vue?vue&type=template&id=0d2ee2be&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/bookable/Bookable.vue?vue&type=template&id=0d2ee2be& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_template_id_0d2ee2be___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_template_id_0d2ee2be___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bookable_vue_vue_type_template_id_0d2ee2be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Bookable.vue?vue&type=template&id=0d2ee2be& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookable/Bookable.vue?vue&type=template&id=0d2ee2be&");
 
 
 /***/ }),
@@ -39036,6 +39171,35 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookable/Bookable.vue?vue&type=template&id=0d2ee2be&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookable/Bookable.vue?vue&type=template&id=0d2ee2be& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.loading
+      ? _c("div", { staticClass: "text-center" }, [_c("Loader")], 1)
+      : _c("div", [_c("div", [_vm._v(_vm._s(_vm.bookable.title))])])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/BookableListItem.vue?vue&type=template&id=665ee471&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/BookableListItem.vue?vue&type=template&id=665ee471&scoped=true& ***!
@@ -39056,7 +39220,9 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _c("h4", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.title))]),
       _vm._v(" "),
-      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.description))])
+      _c("p", { staticClass: "card-text my-5" }, [
+        _vm._v(_vm._s(_vm.description))
+      ])
     ])
   ])
 }
@@ -39071,6 +39237,67 @@ render._withStripped = true
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/Bookables.vue?vue&type=template&id=7a867923& ***!
   \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.loading
+      ? _c("div", { staticClass: "text-center" }, [_c("Loader")], 1)
+      : _c("div", [
+          _c(
+            "div",
+            { staticClass: "row row-cols-auto row-cols-md-3" },
+            _vm._l(_vm.bookables, function(item) {
+              return _c(
+                "div",
+                { key: item.id },
+                [
+                  _c("router-link", { attrs: { to: "/bookable/" + item.id } }, [
+                    _vm._v("test")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col my-2 md-my-0" },
+                    [
+                      _c("BookableListItem", {
+                        attrs: {
+                          title: item.title,
+                          description: item.description
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
+            0
+          )
+        ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/Test.vue?vue&type=template&id=8feed862&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/Test.vue?vue&type=template&id=8feed862& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39124,58 +39351,6 @@ var render = function() {
           }),
           0
         )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/Test.vue?vue&type=template&id=8feed862&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/bookables/Test.vue?vue&type=template&id=8feed862& ***!
-  \***************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm.loading
-      ? _c("div", { staticClass: "text-center" }, [_c("Loader")], 1)
-      : _c("div", [
-          _c(
-            "div",
-            { staticClass: "row row-cols-auto row-cols-md-4" },
-            _vm._l(_vm.bookables, function(item) {
-              return _c("div", { key: item.id }, [
-                _c(
-                  "div",
-                  { staticClass: "col my-2 md-my-0" },
-                  [
-                    _c("BookableListItem", {
-                      attrs: {
-                        title: item.title,
-                        description: item.description
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            }),
-            0
-          )
-        ])
   ])
 }
 var staticRenderFns = []
