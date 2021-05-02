@@ -1,6 +1,9 @@
 <template>
     <div>
-        <h5 class="text-secondary font-weight-bolder">Check Availabilty</h5>
+        <h5 class="text-secondary font-weight-bolder">Check Availabilty
+            <span v-if="noAvailability" class="text-danger">Not Available</span>
+            <span v-if="hasAvailability" class="text-success">Available</span>
+        </h5>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="from">From</label>
@@ -80,7 +83,7 @@ export default {
                 return 200 === this.status;
             },
             noAvailability(){
-                return 400 === this.status;
+                return 404 === this.status;
             }
         }
 }      
