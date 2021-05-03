@@ -3,7 +3,7 @@ import Bookables from './bookables/Bookables';
 import Bookable from './bookable/Bookable';
 import About from './components/About';
 import Test from './bookables/Test';
-
+import TestTwo from './components/TestTwo';
 
 const routes = [
     {
@@ -25,6 +25,11 @@ const routes = [
         path: "/test",
         component: Test,
         name: 'test'
+    },
+    {
+        path: "/test2",
+        component: TestTwo,
+        name: 'test2'
     }
 ];
 
