@@ -2412,12 +2412,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
     return {
       loading: false,
-      users: null
+      users: null,
+      error: ""
     };
   },
   methods: {
@@ -2429,21 +2431,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _context.prev = 0;
+                _context.next = 3;
                 return axios.get('https://jsonplaceholder.typicode.com/users');
 
-              case 2:
+              case 3:
                 _yield$axios$get = _context.sent;
                 data = _yield$axios$get.data;
                 this.users = data;
+                this.error = "";
                 console.log(this.users);
+                _context.next = 13;
+                break;
 
-              case 6:
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](0);
+                this.error = _context.t0;
+
+              case 13:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[0, 10]]);
       }));
 
       function fetchUsers() {
@@ -7142,7 +7153,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.submit-btn[data-v-ec835e82]{\n    background: #151515;\n    color: #fff;\n    border-radius: 4px;\n}\n.flex-container[data-v-ec835e82]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.flex-item[data-v-ec835e82]{\n    width: 33%;\n    margin-top: 2rem;\n}\nh1[data-v-ec835e82]{\n    margin: 1rem 0 1rem;\n}\n@media only screen and (max-width: 600px) {\n.flex-container[data-v-ec835e82]{\n      flex-direction: column;\n}\n.flex-item[data-v-ec835e82]{\n    width: 90%;\n    margin: auto;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.submit-btn[data-v-ec835e82]{\n    background: #151515;\n    color: #fff;\n    border-radius: 4px;\n}\n.flex-container[data-v-ec835e82]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.flex-item[data-v-ec835e82]{\n    width: 33%;\n    margin-top: 2rem;\n}\nh1[data-v-ec835e82], h5[data-v-ec835e82]{\n    margin: 1rem 0 1rem;\n}\n@media only screen and (max-width: 600px) {\n.flex-container[data-v-ec835e82]{\n      flex-direction: column;\n}\n.flex-item[data-v-ec835e82]{\n    width: 90%;\n    margin: auto;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40143,6 +40154,8 @@ var render = function() {
     _c("button", { staticClass: "submit-btn", on: { click: _vm.fetchUsers } }, [
       _vm._v("Submit")
     ]),
+    _vm._v(" "),
+    _vm.error ? _c("h5", [_vm._v(_vm._s(_vm.error))]) : _vm._e(),
     _vm._v(" "),
     _vm.users
       ? _c("div", [

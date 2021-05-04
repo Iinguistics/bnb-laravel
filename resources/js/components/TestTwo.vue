@@ -2,6 +2,7 @@
     <div>
       <h3>Click to view all users</h3>
       <button class="submit-btn" @click="fetchUsers">Submit</button>
+      <h5 v-if="error">{{error}}</h5>
       <div v-if="users">
           <h1>Users:</h1>
           <div class="flex-container">
@@ -25,14 +26,21 @@ export default {
             return {
                 loading: false,
                 users: null,
+                error: ""
             }
         },
 
         methods:{
             fetchUsers: async function(){
+                try{
                 const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
                 this.users = data;
+                this.error = "";
                 console.log(this.users);
+
+                }catch(error){
+                this.error = error;
+                }
             }
         },
 
@@ -62,9 +70,10 @@ export default {
     margin-top: 2rem;
 }
 
-h1{
+h1, h5{
     margin: 1rem 0 1rem;
 }
+
 
 
 @media only screen and (max-width: 600px) {
