@@ -47,6 +47,19 @@ export default {
         created() {
             // this.fetchUsers();
         },
+        computed:{
+            
+        },
+        //watch:{
+            // users:function(){
+            //     if(this.users[0].address.city === 'Gwenborough'){
+            //         this.$router.push('/')
+            //     }else{
+            //     console.log(this.users[0].address.city);
+            //     }
+            //}
+        //}
+        
 }
 </script>
 
