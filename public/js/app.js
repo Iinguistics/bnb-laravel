@@ -40032,12 +40032,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container my-5" }, [
+    return _c("div", { staticClass: "container my-5 p-4" }, [
       _c("h5", { staticClass: "text-secondary text-uppercase" }, [
         _vm._v("Review List")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "border-bottom" }, [
+      _c("div", { staticClass: "border-bottom d-none d-md-block" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-6" }, [_vm._v("Random Name")]),
           _vm._v(" "),

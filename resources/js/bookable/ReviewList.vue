@@ -1,7 +1,7 @@
 <template>
-    <div class="container my-5">
+    <div class="container my-5 p-4">
         <h5 class="text-secondary text-uppercase">Review List</h5>
-        <div class="border-bottom">
+        <div class="border-bottom d-none d-md-block">
             <div class="row">
                 <div class="col-md-6">Random Name</div>
                 <div class="col-md-6 d-flex justify-content-end">Star Rating</div>
