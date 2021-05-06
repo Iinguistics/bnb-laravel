@@ -12,6 +12,7 @@
           </div>
         </div>
       </div>
+     <ReviewList />
     </div>
     <div class="col-md-4 pb-4">
     <Availability />
@@ -25,11 +26,13 @@
 <script>
 import Loader from '../components/Helpers/Loader';
 import Availability from './Availability';
+import ReviewList from './ReviewList';
 
     export default {
         components:{
            Loader,
-           Availability
+           Availability,
+           ReviewList
 
         },
         data: function(){
